@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="stylesheet" href="{% static 'summarynotes/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'summarynotes/themes.css' %}">
+</head>
+
+<body>
+    <div class="container theme-showcase" role="main">
+        <div class="jumbotron">
+            <h2>Summary Page</h2>
+            <a type="button" class="btn btn-link" href="{% url 'vrform'%}">Enter your Summary</a>
+        </div>
+        {% for v in notes %}
+        <div class="page-header">
+            <h1 class="text-capitalize">{{ v.title}}</h1>
+        <div class="well">
+          <p class="text-capitalize">{{ v.comment}}</p>
+          <cite class="text-right">
+            Date Added:{{  v.date_added}}
+          </cite>
+          <p class="text-right">{{ v.author}}.</p>
+
+        </div>
+
+        {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
