@@ -14,7 +14,7 @@ class NoteForm(forms.Form):
             'placeholder':'Comment'
         }
     ))
-    author = forms.CharField(max_length=30, widget=forms.TextInput(attrs={
+    author = forms.CharField(max_length=50, widget=forms.TextInput(attrs={
                 'class':'form-control',
                 'placeholder': 'Author'
             }))
