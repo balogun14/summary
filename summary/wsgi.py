@@ -23,9 +23,5 @@ from whitenoise import WhiteNoise
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'summary.settings')
 app = get_wsgi_application()
+app = WhiteNoise(app)
 
-if settings.DEBUG:
-    app = WhiteNoise(app, root=settings.STATIC_ROOT)
-
-else:
-    app = WhiteNoise(app)
