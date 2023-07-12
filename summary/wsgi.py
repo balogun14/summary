@@ -13,15 +13,15 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'summary.settings')
 
-
+# app = get_wsgi_application()
 
 import os
 from django.conf import settings
 from django.contrib.staticfiles.handlers import StaticFilesHandler
 from django.core.wsgi import get_wsgi_application
-from whitenoise import WhiteNoise
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'summary.settings')
-app = get_wsgi_application()
-app = WhiteNoise(app)
-
+if settings.DEBUG:
+    app = StaticFilesHandler(get_wsgi_application())
+else:
+    app = get_wsgi_application()
